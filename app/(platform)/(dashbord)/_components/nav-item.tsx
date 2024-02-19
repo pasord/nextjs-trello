@@ -1,6 +1,5 @@
 "use client"
 
-
 import { useRouter, usePathname } from "next/navigation" // 不要用 next/router
 import Image from "next/image"
 import {
@@ -110,6 +109,7 @@ export const NavItem = ({
                             "w-full font-normal justify-start pl-10 mb-1",
                             pathname === route.href && "bg-sky-500/10 text-sky-700"
                         )}
+                        variant="ghost"
                     >
                         {route.icon}
                         {route.label}
