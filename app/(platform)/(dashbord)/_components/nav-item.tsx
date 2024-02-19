@@ -77,9 +77,9 @@ export const NavItem = ({
         >
             <AccordionTrigger
                 onClick={() => onExpand(organization.id)}
-                className={cn( // 动态绑定样式合理覆盖
+                className={cn( // cn动态绑定样式合理覆盖
                     "flex items-center gap-x-2 p-1.5 text-neutral-700 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline",
-                    isActive && !isExpanded && "bg-sky-500/10 text-sky-700"
+                    isActive && !isExpanded && "bg-sky-500/10 text-sky-700" // 对的，激活且合起时暂时蓝色背景，激活且展开时默认背景
                 )}
             >
                 <div className="flex items-center gap-x-2">

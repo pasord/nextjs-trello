@@ -20,8 +20,11 @@ interface SidebarProps {
 export const Sidebar = ({
     storageKey = "t-sidebar-state" // 默认,与mobile-sidebar不同
 }: SidebarProps) => {
-    // 储存sidebar展开收起的状态, Mobile组件也用到
-    // expanded: {'abcs': true}
+    // 储存Accordion展开收起, 
+    // expanded: {'组织id': true/false}
+    // 不是互斥的
+    // storageKey与mobile-sidebar不同，各自维护各自的
+    // 刷新后可恢复之前的展开情况
     const [expanded, setExpanded] = useLocalStorage<Record<string, any>>(
         storageKey,
         {}
