@@ -11,3 +11,5 @@ const PlatformLayout = ({ children }: {
 }
 
 export default PlatformLayout
+
+// dashbord 的最外包裹层
