@@ -15,7 +15,7 @@ export const OrgControl = () => {
     // todo
     useEffect(() => {
         if (!setActive) return // 边界处理
-        console.log(111, organizationId);
+        console.log('organizationId::updated::', organizationId);
 
 
         setActive({
