@@ -11,7 +11,7 @@ export type FieldErrors<T> = {
 // TInput 用户输入的字段信息
 // TOutput 结果数据
 export type ActionState<TInput, TOutput> = {
-    fieldErrors: FieldErrors<TInput> // 入参字段校验错误
+    fieldErrors?: FieldErrors<TInput> // 入参字段校验错误
     error?: string | null // 服务端error，db的error
     data?: TOutput // 服务端返回数据
 }
