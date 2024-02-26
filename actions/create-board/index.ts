@@ -10,7 +10,7 @@ import { createSafeAction } from "@/lib/create-safe-action"
 // InputType 入参类型
 import { InputType, ReturnType } from "./types"
 // 入参对象包含字段和校验相关
-import { CreatBoard } from "./schema"
+import { CreateBoard } from "./schema"
 
 
 // handler 是 server action 接口函数
@@ -68,4 +68,4 @@ const handler = async (input: InputType): Promise<ReturnType> => {
 }
 
 // 创建安全请求函数，给到组件使用
-export const createBoard = createSafeAction(CreatBoard, handler)
+export const createBoard = createSafeAction(CreateBoard, handler)
