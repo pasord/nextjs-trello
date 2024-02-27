@@ -49,8 +49,10 @@ export const FormPopover = ({
 
     // form action
     const onSubmit = (formData: FormData) => {
+        // FormData数据结构参考MDN
         const title = formData.get("title") as string
         const image = formData.get("image") as string
+
 
         execute({ title, image })
     }
@@ -84,7 +86,7 @@ export const FormPopover = ({
                             errors={fieldErrors}
                         />
                         <FormInput
-                            id="image"
+                            id="title"
                             label="Board title"
                             type="text"
                             errors={fieldErrors}

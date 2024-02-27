@@ -11,7 +11,7 @@ export type FieldErrors<T> = {
 // TInput 用户输入的字段信息
 // TOutput 结果数据
 export type ActionState<TInput, TOutput> = {
-    fieldErrors?: FieldErrors<TInput> // 入参字段校验错误
+    fieldErrors?: FieldErrors<TInput> // 字段校验错误信息，zod参考
     error?: string | null // 服务端error，db的error
     data?: TOutput // 服务端返回数据
 }
@@ -24,15 +24,16 @@ export const createSafeAction = <TInput, TOutput>(
     handler: (validateData: TInput) => Promise<ActionState<TInput, TOutput>>
 ) => {
     return async (data: TInput): Promise<ActionState<TInput, TOutput>> => {
+        // https://zod.dev/ERROR_HANDLING?id=flattening-errors
+        // 文档介绍返回数据结构就清楚了
         const validationResult = schema.safeParse(data)
+
         if (!validationResult.success) {
             return {
-                fieldErrors: validationResult.error.flatten() as FieldErrors<TInput> // todo flatten
+                fieldErrors: validationResult.error.flatten().fieldErrors as FieldErrors<TInput> // todo flatten
             }
         }
 
         return handler(validationResult.data)
     }
 }
-
-// flatten 拍平

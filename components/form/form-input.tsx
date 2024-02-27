@@ -55,6 +55,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(({
                     name={id}
                     id={id}
                     placeholder={placeholder}
+                    type={type}
                     disabled={pending || disabled}
                     className={cn(
                         "text-sm px-2 py-1 h-7",
