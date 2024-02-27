@@ -1,3 +1,4 @@
+import { Toaster } from "sonner";
 import { ClerkProvider } from "@clerk/nextjs";
 
 const PlatformLayout = ({ children }: {
@@ -5,6 +6,7 @@ const PlatformLayout = ({ children }: {
 }) => {
     return (
         <ClerkProvider>
+            <Toaster />
             {children}
         </ClerkProvider>
     )
